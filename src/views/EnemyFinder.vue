@@ -71,12 +71,12 @@ export default {
         search: "",
         headers: [
             {text: "Image", value: 'image'},
-            {text: "Name", value: 'name'},
+            {text: "Name", value: 'name', width: 250},
             {text: "Max HP", value: 'maxHp'},
             {text: "ATK", value: 'atk'},
             {text: "DEF", value: 'def'},
             {text: "RES", value: 'magicResistance'},
-            {text: "Stages", value: 'stages',width: "500"}
+            {text: "Stages", value: 'stages',width: 500}
 
         ],
         resultTable: [],
