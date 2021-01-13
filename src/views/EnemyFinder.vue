@@ -39,7 +39,7 @@
                     </template>
                     <template v-slot:item.stages="{item}">
                         <div style="padding: 5px;">
-                            <v-chip v-for="i in item.stages" :key="`${item.key}-stages-${i}`" style="margin;">{{getCode(i)}}</v-chip>
+                            <v-chip v-for="i in item.stages" :key="`${item.key}-stages-${i}`" style="margin: 1px;">{{getCode(i)}}</v-chip>
                         </div>
                     </template>
                </v-data-table>
@@ -106,10 +106,10 @@ export default {
         getCode: function(stageId){
             let sid = stageId.replace("level_","").replace("weekly", "wk").replace("promote", "pro").replace("killcost","kc")
             let s =  stage_table.stages[sid];
-            if(s) {
-                return s.code
+            if (s.code === "Annihilation") {
+                return s.code + " " + stageId[stageId.length-1]
             }
-            console.log(stageId)
+            return s.code
         }
     },
     mounted: function() {

@@ -1,7 +1,7 @@
 import os
 import json
 files = os.popen('find ./src/assets/data/en-US/gamedata/levels/obt/ -type f').read().split('\n')
-filtered = ["training", "campaign", "guide", "rune"]
+filtered = ["training", "guide", "rune"]
 file_list = []
 enemy_stages = {}
 stage_enemies = {}
