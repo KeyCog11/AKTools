@@ -34,7 +34,7 @@
                <v-data-table :headers="headers" :items="resultTable" :search="search">
                     <template v-slot:item.image="{ item }">
                         <div class="p-2">
-                            <v-img :src="require(`@/assets/img/enemy/${item.key}.png`)" :alt="item.name" height="75" width="75"></v-img>
+                            <v-img :src="loadImg(item.key)" :alt="item.name" height="75" width="75"></v-img>
                         </div>
                     </template>
                     <template v-slot:item.stages="{item}">
@@ -80,6 +80,7 @@ export default {
 
         ],
         resultTable: [],
+        enemyFilterList: ["enemy_1510_frstar2_s"]
     }),
     methods: {
         find: function(){
@@ -87,7 +88,10 @@ export default {
             this.resultTable = []
             this.enemies.forEach(it => {
                 let val = it.Value[0].enemyData.attributes[this.attr].m_value
-                if((!this.lwrBound || val >= this.lwrBound) && (!this.upperBound || val <= this.upperBound)) {
+                if (this.enemyFilterList.indexOf(it.Key) >= 0) {
+                    console.log("Filtering "+it.Key)   
+                }
+                else if((!this.lwrBound || val >= this.lwrBound) && (!this.upperBound || val <= this.upperBound)) {
                     this.result.push(it)
                     let entry = {
                         key: it.Key,
@@ -110,6 +114,14 @@ export default {
                 return s.code + " " + stageId[stageId.length-1]
             }
             return s.code
+        },
+        loadImg: function(key) {
+            try {
+                return require(`@/assets/img/enemy/${key}.png`)
+            }
+            catch {
+                return 
+            }
         }
     },
     mounted: function() {
