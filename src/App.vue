@@ -7,7 +7,7 @@
       dark
     >
       <a class="d-flex align-center justify-center text-center  ">
-        <img src="@/assets/img/Babel.webp" height="50"/>
+        <img src="@/assets/img/sargon.png" height="50"/>
         <v-spacer></v-spacer>
         <h1>AKTools</h1>
       </a>
