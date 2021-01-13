@@ -3,7 +3,7 @@
         <h1>Enemy Finder</h1>
         <br>
         <v-row>
-            <v-text-field v-model="search" label="Search" solo append-icon="mdi-magnify"></v-text-field>
+            <v-text-field v-model="search" label="Search" solo prepend-inner-icon="mdi-magnify" clearable></v-text-field>
         </v-row>
         <v-row>
             <v-spacer></v-spacer>
@@ -15,9 +15,9 @@
             </v-flex>
             <v-spacer></v-spacer>
             <v-flex xs5 d-flex justify-center align-center>
-                <v-text-field  mx-4 type="number" v-model="lwrBound" label="Lower Bound" @change="find()" append-icon="mdi-close" @click:append="lwrBound = null; find()"></v-text-field>
+                <v-text-field  mx-4 type="number" v-model="lwrBound" label="Lower Bound" @change="find()" clearable></v-text-field>
                 <h3 style="margin: 10px;"> &nbsp;-&nbsp;</h3>
-                <v-text-field  mx-4 type="number" v-model="upperBound" label="Upper Bound" @change="find()" append-icon="mdi-close" @click:append="lwrBound = null; find()"></v-text-field>
+                <v-text-field  mx-4 type="number" v-model="upperBound" label="Upper Bound" @change="find()" clearable></v-text-field>
             </v-flex>
             <v-spacer></v-spacer>
             <v-flex xs2 d-flex align-center>
